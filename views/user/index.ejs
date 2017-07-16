@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+  <div class="panel-body">
+    <p>...</p>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Remove</th>
+    </tr>
+    <% users.forEach(function(user) { %>
+        <tr>
+            <td><a href="/user/show/<%= user.id %>"><%= user.username %></a></td>
+            <td><%= user.email %></td>
+            <td><button class="btn btn-success">Editar</button></td>
+            <td>
+                <form action="/user/destroy/<%= user.id %>" method="POST" accept-charset="utf-8">
+                    <input type="submit" class="btn btn-danger" value="Eliminar" />
+                </form>
+            </td>
+        </tr>
+    <% }) %>
+  </table>
+</div>
